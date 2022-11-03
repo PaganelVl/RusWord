@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
+    <title>Русское слово</title>
+</head>
+<body>
+    <header>
+        <img src="{% static 'logo.png' %}" id="logoMain" alt="Русское слово. Все словари русского языка">
+    </header>
+    <center>
+        <div id="main">
+            <h1 class="titleForm">Введите искомое слово:</h1>
+            <form action="result" method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form }}
+                </table>
+                <button class="searchButton" type="submit">
+                    Искать в словарях
+                </button>
+            </form>
+        </div>
+    </center>
+</body>
+</html>
